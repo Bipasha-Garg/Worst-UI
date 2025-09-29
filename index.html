@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Worst UI Fixed</title>
+  <!-- <style>
+    body {
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: red;
+    }
+    .form-container {
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+    .input-field {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .mcq-options {
+      margin-top: 20px;
+    }
+    .mcq-option {
+      display: block;
+      margin: 6px 0;
+      padding: 10px;
+      font-size: 14px;
+      background: #444;
+      color: white;
+      border: 1px solid #888;
+      cursor: pointer;
+      text-align: left;
+    }
+    .mcq-option:hover {
+      background: #666;
+    }
+    .gif-modal, .popup, .final-screen {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      display:none;
+      justify-content:center;
+      align-items:center;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+    }
+    .gif-modal img {
+      width: 250px;
+      border: 3px solid white;
+    }
+    .popup-content {
+      background: #333;
+      padding: 20px;
+      border-radius: 8px;
+      color: white;
+    }
+    .button {
+      margin-top: 15px;
+      padding: 8px 15px;
+      border: none;
+      background: red;
+      color: white;
+      cursor: pointer;
+    }
+    .final-text {
+      font-size: 10vw;
+      color: yellow;
+      text-shadow: 2px 2px red;
+      animation: flash 0.5s infinite alternate;
+    }
+    @keyframes flash {
+      from { opacity: 1; }
+      to { opacity: 0.5; }
+    }
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0.8;
+      animation: fall 4s linear infinite;
+    }
+    @keyframes fall {
+      from { transform: translateY(-100vh) rotate(0deg); }
+      to { transform: translateY(100vh) rotate(720deg); }
+    }
+  </style>-->
+
+  <style>
+    body {
+      background: linear-gradient(270deg, #ff00ff, #00ffff, #ff0000, #00ff00);
+      background-size: 800% 800%;
+      animation: bgShift 10s ease infinite;
+      color: white;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+  
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+  
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #ff0000;
+      text-shadow: 0 0 10px yellow, 0 0 20px lime, 0 0 30px cyan;
+      animation: pulse 1s infinite alternate;
+    }
+  
+    @keyframes pulse {
+      from { transform: scale(1); opacity: 0.8; }
+      to { transform: scale(1.1); opacity: 1; }
+    }
+  
+    .form-container {
+      background: rgba(34, 34, 34, 0.9);
+      padding: 20px;
+      border-radius: 12px;
+      display: inline-block;
+      box-shadow: 0 0 20px cyan, 0 0 40px magenta;
+      animation: wiggle 2s infinite;
+    }
+  
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-1deg); }
+      50% { transform: rotate(1deg); }
+    }
+  
+    .input-field {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 16px;
+      background: black;
+      border: 2px solid lime;
+      color: lime;
+      text-shadow: 0 0 5px lime;
+      animation: glowInput 1.5s infinite alternate;
+    }
+  
+    @keyframes glowInput {
+      from { box-shadow: 0 0 5px lime; }
+      to { box-shadow: 0 0 20px lime; }
+    }
+  
+    .mcq-options {
+      margin-top: 20px;
+    }
+  
+    .mcq-option {
+      display: block;
+      margin: 8px 0;
+      padding: 12px;
+      font-size: 16px;
+      background: #222;
+      color: cyan;
+      border: 2px solid magenta;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.3s ease;
+      text-shadow: 0 0 5px cyan;
+    }
+  
+    .mcq-option:hover {
+      background: magenta;
+      color: yellow;
+      transform: scale(1.1) rotate(-2deg);
+      box-shadow: 0 0 20px yellow;
+    }
+  
+    .gif-modal, .popup, .final-screen {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      display:none;
+      justify-content:center;
+      align-items:center;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      animation: fadeIn 1s forwards;
+    }
+  
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+    .gif-modal img {
+      width: 300px;
+      border: 5px solid neonpink;
+      box-shadow: 0 0 30px cyan, 0 0 60px yellow;
+    }
+  
+    .popup-content {
+      background: #111;
+      padding: 25px;
+      border-radius: 12px;
+      color: white;
+      text-shadow: 0 0 10px cyan;
+      box-shadow: 0 0 30px magenta, 0 0 60px lime;
+      animation: bounce 1s infinite;
+    }
+  
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  
+    .button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      border: none;
+      background: linear-gradient(45deg, red, yellow);
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      box-shadow: 0 0 20px red, 0 0 30px yellow;
+      animation: flashBtn 1s infinite alternate;
+    }
+  
+    @keyframes flashBtn {
+      from { filter: brightness(0.8); }
+      to { filter: brightness(1.5); }
+    }
+  
+    .final-text {
+      font-size: 12vw;
+      color: yellow;
+      text-shadow: 2px 2px red, 0 0 20px cyan, 0 0 40px lime;
+      animation: flash 0.4s infinite alternate;
+    }
+  
+    @keyframes flash {
+      from { opacity: 1; transform: scale(1); }
+      to { opacity: 0.5; transform: scale(1.05); }
+    }
+  
+    .confetti {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      opacity: 0.9;
+      border-radius: 50%;
+      animation: fall 4s linear infinite;
+    }
+  
+    @keyframes fall {
+      from { transform: translateY(-100vh) rotate(0deg); }
+      to { transform: translateY(100vh) rotate(720deg); }
+    }
+  </style>
+    
+</head>
+<body>
+  <h1>Why do you want to burn your eyes?</h1>
+
+  <div class="form-container">
+    <label>Enter your name and select the best option to the question asked above to win a prize</label>
+    <input type="text" id="nameField" class="input-field" placeholder="Type here" readonly onclick="showOopsBox()">
+
+    <div id="oopsBox" style="display:none;">
+      <input type="text" id="oopsField" class="input-field" placeholder="Type here instead">
+    </div>
+
+    <div class="mcq-options" id="mcqOptions"></div>
+  </div>
+
+  <!-- Gif Modal -->
+  <div id="gifModal" class="gif-modal">
+    <div>
+      <img src="https://media.giphy.com/media/L2XwW0eTzR3u36YgJk/giphy.gif" alt="Counting GIF">
+      <p style="color:white;">Asked you to type not click :|</p>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <p id="popupText"></p>
+      <button class="button" onclick="closePopup()">Continue</button>
+    </div>
+  </div>
+
+  <!-- Final Screen -->
+  <div id="finalScreen" class="final-screen">
+    <div id="confettiContainer"></div>
+    <div class="final-text">7 CRORE</div>
+  </div>
+
+  <script>
+    let clickCount = 0;
+    const mcqLabels = [
+      "i love chatpati cheezin in my life",
+      "aadat hai har jagah ungal krne ki",
+      "shanti se baitha nhi jata",
+      "badsurat logg dekh dekh ke thak gya/gyi tha/thi",
+      "all of the options"
+    ];
+    let currentOptions = [...mcqLabels];
+
+    function showOopsBox() {
+      document.getElementById('oopsBox').style.display = 'block';
+    }
+
+    document.getElementById('oopsField').addEventListener('click', () => {
+      document.getElementById('gifModal').style.display = 'flex';
+      setTimeout(enableNameTyping, 5000);
+    });
+
+    function enableNameTyping() {
+      document.getElementById('gifModal').style.display = 'none';
+      const oopsField = document.getElementById('oopsField');
+      oopsField.readOnly = false;   // allow typing in oopsField
+      oopsField.placeholder = "Now type your name here";
+      oopsField.focus();
+    }
+  
+    function generateMCQ() {
+      const container = document.getElementById('mcqOptions');
+      container.innerHTML = '';
+      currentOptions.forEach((label, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'mcq-option';
+        btn.textContent = String.fromCharCode(97 + index) + ". " + label;
+        btn.onclick = () => handleMCQClick(label);
+        container.appendChild(btn);
+      });
+    }
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i+1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function handleMCQClick(label) {
+      clickCount++;
+      if (clickCount < 3) {
+        shuffle(currentOptions);
+        generateMCQ();
+      } else {
+        if (label === "all of the options") {
+          document.getElementById('popupText').textContent = "bade rangeen aadmi ho";
+        } else {
+          document.getElementById('popupText').textContent = "why? don't the other options apply ?";
+        }
+        document.getElementById('popup').style.display = 'flex';
+      }
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      showFinalScreen();
+    }
+
+    function showFinalScreen() {
+      document.getElementById('finalScreen').style.display = 'flex';
+      throwConfetti();
+    }
+
+    function throwConfetti() {
+      const container = document.getElementById('confettiContainer');
+      const colors = ['#ff00ff', '#00ffff', '#00ff00', 'red', 'yellow', 'white'];
+      for (let i = 0; i < 100; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
+        c.style.left = Math.random()*100 + 'vw';
+        c.style.animationDelay = Math.random()*-4 + 's';
+        c.style.animationDuration = (Math.random()*3 + 2) + 's';
+        container.appendChild(c);
+      }
+    }
+
+    // Init
+    generateMCQ();
+  </script>
+</body>
+</html>
+
